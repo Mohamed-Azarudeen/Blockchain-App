@@ -1,0 +1,259 @@
+{
+    "compiler": {
+        "version": "0.8.1+commit.df193b15"
+    },
+    "language": "Solidity",
+    "output": {
+        "abi": [{
+                "inputs": [],
+                "stateMutability": "nonpayable",
+                "type": "constructor"
+            },
+            {
+                "inputs": [{
+                        "internalType": "address",
+                        "name": "_packageId",
+                        "type": "address"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "_from",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "_to",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "_originName",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "_destinationName",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "_departureTime",
+                        "type": "uint256"
+                    }
+                ],
+                "name": "addNewPackage",
+                "outputs": [],
+                "stateMutability": "nonpayable",
+                "type": "function"
+            },
+            {
+                "inputs": [],
+                "name": "admin",
+                "outputs": [{
+                    "internalType": "address",
+                    "name": "",
+                    "type": "address"
+                }],
+                "stateMutability": "view",
+                "type": "function"
+            },
+            {
+                "inputs": [],
+                "name": "count",
+                "outputs": [{
+                    "internalType": "uint256",
+                    "name": "",
+                    "type": "uint256"
+                }],
+                "stateMutability": "view",
+                "type": "function"
+            },
+            {
+                "inputs": [{
+                    "internalType": "address",
+                    "name": "_packageId",
+                    "type": "address"
+                }],
+                "name": "currentStatus",
+                "outputs": [{
+                    "internalType": "string",
+                    "name": "",
+                    "type": "string"
+                }],
+                "stateMutability": "view",
+                "type": "function"
+            },
+            {
+                "inputs": [{
+                    "internalType": "address",
+                    "name": "_packageId",
+                    "type": "address"
+                }],
+                "name": "getPackageDetails",
+                "outputs": [{
+                        "internalType": "address",
+                        "name": "packageId",
+                        "type": "address"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "from",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "to",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "originName",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "destinationName",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "departureTime",
+                        "type": "uint256"
+                    }
+                ],
+                "stateMutability": "view",
+                "type": "function"
+            },
+            {
+                "inputs": [{
+                    "internalType": "address",
+                    "name": "_packageId",
+                    "type": "address"
+                }],
+                "name": "getStatusHistory",
+                "outputs": [{
+                        "internalType": "string",
+                        "name": "",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "",
+                        "type": "string"
+                    }
+                ],
+                "stateMutability": "view",
+                "type": "function"
+            },
+            {
+                "inputs": [{
+                    "internalType": "uint256",
+                    "name": "",
+                    "type": "uint256"
+                }],
+                "name": "packages",
+                "outputs": [{
+                        "internalType": "address",
+                        "name": "packageId",
+                        "type": "address"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "from",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "to",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "originName",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "destinationName",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "departureTime",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "status",
+                        "type": "string"
+                    }
+                ],
+                "stateMutability": "view",
+                "type": "function"
+            },
+            {
+                "inputs": [{
+                        "internalType": "address",
+                        "name": "_packageId",
+                        "type": "address"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "_status",
+                        "type": "string"
+                    }
+                ],
+                "name": "updateShipment",
+                "outputs": [],
+                "stateMutability": "nonpayable",
+                "type": "function"
+            }
+        ],
+        "devdoc": {
+            "kind": "dev",
+            "methods": {},
+            "version": 1
+        },
+        "userdoc": {
+            "kind": "user",
+            "methods": {},
+            "version": 1
+        }
+    },
+    "settings": {
+        "compilationTarget": {
+            "contracts/6_TrackinhNew.sol": "ShipmentTracking"
+        },
+        "evmVersion": "istanbul",
+        "libraries": {},
+        "metadata": {
+            "bytecodeHash": "ipfs"
+        },
+        "optimizer": {
+            "enabled": false,
+            "runs": 200
+        },
+        "remappings": []
+    },
+    "sources": {
+        "contracts/6_TrackinhNew.sol": {
+            "keccak256": "0x4b372a80f07853cb7a1ff4a57719117ae597e39ae95646e688aaaa712cdb0b23",
+            "license": "UNLINCENSED",
+            "urls": [
+                "bzz-raw://dc7b6b45fe21f90099cec45326c403bf63df0bc1a841e75b64453417f5a64cdd",
+                "dweb:/ipfs/QmbQ5mS7zyrJh5yJXoUuGmcFZkqjG4wMJvQahGGvadxV6K"
+            ]
+        }
+    },
+    "version": 1
+}
