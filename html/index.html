@@ -6,112 +6,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shipment Tracker</title>
-    <style>
-        input[type=text] {
-            width: 25%;
-            padding: 12px 20px;
-            margin: 8px 0;
-            box-sizing: border-box;
-        }
-        
-        input[type=button],
-        input[type=submit],
-        input[type=reset] {
-            background-color: #4CAF50;
-            border: none;
-            color: white;
-            padding: 16px 32px;
-            text-decoration: none;
-            margin: 4px 2px;
-            cursor: pointer;
-        }
-        
-        ol.progtrckr {
-            margin: 0;
-            padding: 0;
-            list-style-type: none;
-        }
-        
-        ol.progtrckr li {
-            display: inline-block;
-            text-align: center;
-            line-height: 3.5em;
-        }
-        
-        ol.progtrckr[data-progtrckr-steps="2"] li {
-            width: 49%;
-        }
-        
-        ol.progtrckr[data-progtrckr-steps="3"] li {
-            width: 33%;
-        }
-        
-        ol.progtrckr[data-progtrckr-steps="4"] li {
-            width: 24%;
-        }
-        
-        ol.progtrckr[data-progtrckr-steps="5"] li {
-            width: 19%;
-        }
-        
-        ol.progtrckr[data-progtrckr-steps="6"] li {
-            width: 16%;
-        }
-        
-        ol.progtrckr[data-progtrckr-steps="7"] li {
-            width: 14%;
-        }
-        
-        ol.progtrckr[data-progtrckr-steps="8"] li {
-            width: 12%;
-        }
-        
-        ol.progtrckr[data-progtrckr-steps="9"] li {
-            width: 11%;
-        }
-        
-        ol.progtrckr li.progtrckr-done {
-            color: black;
-            border-bottom: 4px solid yellowgreen;
-        }
-        
-        ol.progtrckr li.progtrckr-todo {
-            color: silver;
-            border-bottom: 4px solid silver;
-        }
-        
-        ol.progtrckr li:after {
-            content: "\00a0\00a0";
-        }
-        
-        ol.progtrckr li:before {
-            position: relative;
-            bottom: -2.5em;
-            float: left;
-            left: 50%;
-            line-height: 1em;
-        }
-        
-        ol.progtrckr li.progtrckr-done:before {
-            content: "\2713";
-            color: white;
-            background-color: yellowgreen;
-            height: 2.2em;
-            width: 2.2em;
-            line-height: 2.2em;
-            border: none;
-            border-radius: 2.2em;
-        }
-        
-        ol.progtrckr li.progtrckr-todo:before {
-            content: "\039F";
-            color: silver;
-            background-color: white;
-            font-size: 2.2em;
-            bottom: -1.2em;
-        }
-    </style>
+    <link rel="stylesheet" href="../css/style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/web3/1.3.5/web3.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $("#status-history").hide();
+        });
+    </script>
 </head>
 
 <body>
@@ -143,7 +48,6 @@
     </nav>
     <br><br>
 
-
     <div class="container">
         <div class="row justify-content-between">
             <div class="col-12">
@@ -152,21 +56,27 @@
                         Track Package
                     </div>
                     <div class="card-body">
-                        <form>
+                        <form action="index.html">
                             <div class="form-group row">
-                                <label for="inputEmail3" class="col-sm-2 col-form-label">Package Id</label>
-                                <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="inputEmail3" placeholder="Package Id">
+                                <!-- <label for="inputEmail3" class="col-sm-2 col-form-label">Package Id</label> -->
+                                <div class="form-group col-6">
+                                    <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example custom-select" id="accounts">
+                                        <option selected>Choose...</option>
+                                        <option value="1">One</option>
+                                        <option value="2">Two</option>
+                                        <option value="3">Three</option>
+                                      </select>
                                 </div>
                             </div>
                             <br>
 
                             <div class="form-group row">
                                 <div class="col-sm-10">
-                                    <button type="submit" class="btn btn-primary">Track</button>
+                                    <button type="button" class="btn btn-primary" onclick="getHistory()">Track</button>
                                 </div>
                             </div>
                         </form>
+
                     </div>
                 </div>
             </div>
@@ -174,48 +84,76 @@
     </div>
     <br>
 
-    <h4>Shipment History</h4>
+    <div class="history" id="status-history">
+        <div class="container">
+            <div class="row justify-content-between">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-header">
+                            Shipment History
+                        </div>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th scope="col">#</th>
-                <th scope="col">Status</th>
-                <th scope="col">Time</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <th scope="row">1</th>
-                <td>Shipped</td>
-                <td>12.00</td>
-            </tr>
-            <tr>
-                <th scope="row">2</th>
-                <td>Out of Delivery</td>
-                <td>4.00</td>
-            </tr>
-            <tr>
-                <th scope="row">3</th>
-                <td>Delivered</td>
-                <td>8.00</td>
-            </tr>
-        </tbody>
-    </table>
+                        <!-- History of Package status Table-->
+                        <div class="card-body">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">#</th>
+                                        <th scope="col">Status & Time</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <th scope="row">1</th>
+                                        <td id="status2"></td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">2</th>
+                                        <td id="status3"></td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">3</th>
+                                        <td id="status4"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br><br>
 
+            <!-- Tracking Chart -->
+            <ol class="progtrckr" data-progtrckr-steps="5">
+                <li class="progtrckr-done">Shipping soon</li>
+                <li id="shipped" class="progtrckr-todo">Shipped</li>
+                <li id="ofd" class="progtrckr-todo">Out for devilvery</li>
+                <li id="delivered" class="progtrckr-todo">Delivered</li>
+            </ol>
+        </div>
+    </div>
     <br><br>
-    <ol class="progtrckr" data-progtrckr-steps="5">
-        <li class="progtrckr-done">Shipping soon</li>
 
-        <li class="progtrckr-done">Shipped</li>
 
-        <li class="progtrckr-done">On the way</li>
+    <script src="../solidity/abi.js"></script>
+    <script src="../js/get_contract.js"></script>
+    <script src="../js/scripts.js"></script>
 
-        <li class="progtrckr-todo">Out for devilvery</li>
-
-        <li class="progtrckr-todo">Delivered</li>
-    </ol>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+
+    <script>
+        $(document).ready(async() => {
+            await updateAccounts()
+            $("#accounts").change()
+        });
+
+        $("#accounts").change((e) => {
+            let temp = $(e.target).val()
+            web3.eth.getBalance(temp).then(bal => {
+                $("#balance").html(web3.utils.fromWei(bal, "ether"))
+            });
+        });
+    </script>
 </body>
 
 </html>

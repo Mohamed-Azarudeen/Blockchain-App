@@ -1,34 +1,103 @@
-@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css");
-.track_tbl td.track_dot {
-    width: 50px;
-    position: relative;
+input[type=text] {
+    width: 25%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+}
+
+input[type=button],
+input[type=submit],
+input[type=reset] {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+ol.progtrckr {
+    margin: 0;
     padding: 0;
+    list-style-type: none;
+}
+
+ol.progtrckr li {
+    display: inline-block;
     text-align: center;
+    line-height: 3.5em;
 }
 
-.track_tbl td.track_dot:after {
-    content: "\f111";
-    font-family: FontAwesome;
-    position: absolute;
-    margin-left: -5px;
-    top: 11px;
+ol.progtrckr[data-progtrckr-steps="2"] li {
+    width: 49%;
 }
 
-.track_tbl td.track_dot span.track_line {
-    background: #000;
-    width: 3px;
-    min-height: 50px;
-    position: absolute;
-    height: 101%;
+ol.progtrckr[data-progtrckr-steps="3"] li {
+    width: 33%;
 }
 
-.track_tbl tbody tr:first-child td.track_dot span.track_line {
-    top: 30px;
-    min-height: 25px;
+ol.progtrckr[data-progtrckr-steps="4"] li {
+    width: 24%;
 }
 
-.track_tbl tbody tr:last-child td.track_dot span.track_line {
-    top: 0;
-    min-height: 25px;
-    height: 10%;
+ol.progtrckr[data-progtrckr-steps="5"] li {
+    width: 19%;
+}
+
+ol.progtrckr[data-progtrckr-steps="6"] li {
+    width: 16%;
+}
+
+ol.progtrckr[data-progtrckr-steps="7"] li {
+    width: 14%;
+}
+
+ol.progtrckr[data-progtrckr-steps="8"] li {
+    width: 12%;
+}
+
+ol.progtrckr[data-progtrckr-steps="9"] li {
+    width: 11%;
+}
+
+ol.progtrckr li.progtrckr-done {
+    color: black;
+    border-bottom: 4px solid yellowgreen;
+}
+
+ol.progtrckr li.progtrckr-todo {
+    color: silver;
+    border-bottom: 4px solid silver;
+}
+
+ol.progtrckr li:after {
+    content: "\00a0\00a0";
+}
+
+ol.progtrckr li:before {
+    position: relative;
+    bottom: -2.5em;
+    float: left;
+    left: 50%;
+    line-height: 1em;
+}
+
+ol.progtrckr li.progtrckr-done:before {
+    content: "\2713";
+    color: white;
+    background-color: yellowgreen;
+    height: 2.2em;
+    width: 2.2em;
+    line-height: 2.2em;
+    border: none;
+    border-radius: 2.2em;
+}
+
+ol.progtrckr li.progtrckr-todo:before {
+    content: "\039F";
+    color: silver;
+    background-color: white;
+    font-size: 2.2em;
+    bottom: -1.2em;
 }

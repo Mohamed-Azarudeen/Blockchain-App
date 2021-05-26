@@ -30,9 +30,9 @@ const abi = [{
                 "type": "string"
             },
             {
-                "internalType": "uint256",
+                "internalType": "string",
                 "name": "_departureTime",
-                "type": "uint256"
+                "type": "string"
             }
         ],
         "name": "addNewPackage",
@@ -110,9 +110,9 @@ const abi = [{
                 "type": "string"
             },
             {
-                "internalType": "uint256",
+                "internalType": "string",
                 "name": "departureTime",
-                "type": "uint256"
+                "type": "string"
             }
         ],
         "stateMutability": "view",
@@ -182,9 +182,9 @@ const abi = [{
                 "type": "string"
             },
             {
-                "internalType": "uint256",
+                "internalType": "string",
                 "name": "departureTime",
-                "type": "uint256"
+                "type": "string"
             },
             {
                 "internalType": "string",

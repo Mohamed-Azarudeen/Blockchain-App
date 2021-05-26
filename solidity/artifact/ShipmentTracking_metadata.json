@@ -36,9 +36,9 @@
                         "type": "string"
                     },
                     {
-                        "internalType": "uint256",
+                        "internalType": "string",
                         "name": "_departureTime",
-                        "type": "uint256"
+                        "type": "string"
                     }
                 ],
                 "name": "addNewPackage",
@@ -116,9 +116,9 @@
                         "type": "string"
                     },
                     {
-                        "internalType": "uint256",
+                        "internalType": "string",
                         "name": "departureTime",
-                        "type": "uint256"
+                        "type": "string"
                     }
                 ],
                 "stateMutability": "view",
@@ -188,9 +188,9 @@
                         "type": "string"
                     },
                     {
-                        "internalType": "uint256",
+                        "internalType": "string",
                         "name": "departureTime",
-                        "type": "uint256"
+                        "type": "string"
                     },
                     {
                         "internalType": "string",
@@ -247,11 +247,11 @@
     },
     "sources": {
         "contracts/6_TrackinhNew.sol": {
-            "keccak256": "0x4b372a80f07853cb7a1ff4a57719117ae597e39ae95646e688aaaa712cdb0b23",
+            "keccak256": "0x3bacaeb2c40914824a6d8edbe8658065fb7dfecd8889c7d1618d0ba9a2ff290b",
             "license": "UNLINCENSED",
             "urls": [
-                "bzz-raw://dc7b6b45fe21f90099cec45326c403bf63df0bc1a841e75b64453417f5a64cdd",
-                "dweb:/ipfs/QmbQ5mS7zyrJh5yJXoUuGmcFZkqjG4wMJvQahGGvadxV6K"
+                "bzz-raw://1f1e7850a386ccd1793935ea92fb7fb088750a046b91971def8e123264a74483",
+                "dweb:/ipfs/QmZti1zrZ8R78ewoAkp1EoWbNV5zUUQ1MBMFMfVJiYxPUL"
             ]
         }
     },

@@ -16,7 +16,7 @@ contract ShipmentTracking {
         string to;    
         string originName;
         string destinationName;
-        uint departureTime;
+        string departureTime;
         string status;
     }
     
@@ -31,8 +31,6 @@ contract ShipmentTracking {
         string status3;
         string status4;
     }
-    
-    // Shipping soon, Shipped, On the way, Out for devilvery, Delivered
     
     constructor(){
 		admin = msg.sender;
@@ -63,7 +61,7 @@ contract ShipmentTracking {
         string memory _to,
         string memory _originName,
         string memory _destinationName,
-        uint _departureTime
+        string memory _departureTime
         ) 
     public isAdmin {
         string memory _status1 = "Shipping Soon";
@@ -88,12 +86,10 @@ contract ShipmentTracking {
         for(uint j=0; j<StatusCount; j++) {
             if(statusMap[j].packageId == _packageId) {
                 string memory _empty = "-1";
-                // string memory _s2 = statusMap[j].status2;
-                // string memory _s3 = statusMap[j].status3;
                 
                 if(keccak256(bytes(statusMap[j].status2)) == keccak256(bytes(_empty)))
                     statusMap[j].status2 = _status;
-                else if(keccak256(bytes(statusMap[j].status3)) ==keccak256(bytes(_empty)))
+                else if(keccak256(bytes(statusMap[j].status3)) == keccak256(bytes(_empty)))
                     statusMap[j].status3 = _status;
                 else
                     statusMap[j].status4 = _status;
@@ -129,7 +125,7 @@ contract ShipmentTracking {
         string memory to ,
         string memory originName,
         string memory destinationName,
-        uint departureTime
+        string memory departureTime
         )
     {
         for(uint i=0; i<count; i++) {
